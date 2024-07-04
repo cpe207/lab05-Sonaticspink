@@ -8,14 +8,14 @@ interface Student{
 };
 
 // assign interface/type to the function definition properly
-function findTopNames(students:any) {
+function findTopNames(students:Student[]) {
   let FilterStudents = students.filter((std:any) => std.score > 8);
   let StudenNameList = FilterStudents.map((mama:any) => mama.name);
   return StudenNameList;
 };
 
 // assign interface/type to the student1 object properly
-const students1 = [
+const students1:Student[] = [
   { name: "john", score: 10 },
   { name: "jane", score: 9 },
   { name: "jim", score: 8 },
