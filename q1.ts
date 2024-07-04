@@ -1,43 +1,40 @@
-import { Interface } from "readline";
-import internal from "stream";
-
 // define interface for Hero and Shop objects
 interface Hero {
-  items : string;
+  items : string[],
   gold : number;
 }
 
 interface Shop {
-  item : string;
-  price : number;
+  item : string,
+  price: number
 }
 
 // assign interface/type to the function definition properly
-function buyItem(hero:any , shop:any) {
-  if(hero.gold >= shop.price){
-    hero.items.push(shop.item);
-    hero.gold = hero.gold-shop.price;
+function buyItem(hero:Hero, shop:Shop) {
+  if(hero.gold > shop.price){
+    hero.items.push(shop.item)
+    hero.gold -= shop.price;
   }
   return hero;
 }
 
 //Test cases : assign proper type/interface to all objects
-const hero1 = {
+const hero1:Hero = {
   items: ["sword", "potion"],
   gold: 50,
 };
 
-const shop1 = {
+const shop1:Shop = {
   item: "armor",
   price: 20,
 };
 
-const hero2 = {
-  items: ["sword", "potion"], 
+const hero2:Hero = {
+  items: ["sword", "potion"],
   gold: 50,
 };
 
-const shop2 = {
+const shop2:Shop = {
   item: "legendary armor",
   price: 200,
 };
